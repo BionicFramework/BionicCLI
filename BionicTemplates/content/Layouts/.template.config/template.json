@@ -1,0 +1,12 @@
+{
+  "author": "Bionic Framework Contributors",
+  "classifications": [ "Web/Blazor" ],
+  "name": "Bionic Layout Template",
+  "identity": "Bionic.Layout.Template",
+  "shortName": "bionic.layout",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "MyLayout",
+  "preferNameDirectory" : "true",
+}

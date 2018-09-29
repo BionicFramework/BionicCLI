@@ -1,0 +1,11 @@
+<Project>
+  <!-- Set InformationVersion here, since $(Version) is already set at this point. -->
+  <PropertyGroup>
+    <InformationalVersion>$(Version). Commit Hash: $(GitHeadSha)</InformationalVersion>
+  </PropertyGroup>
+
+  <!-- SourceLink -->
+  <ItemGroup Condition="'$(IsPackable)'=='true' and '$(SourceLinkCreate)'=='true'">
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

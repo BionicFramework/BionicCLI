@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <projectUrl>https://github.com/bmsantos/BionicPlugin</projectUrl>
+        <iconUrl>https://image.flaticon.com/icons/svg/293/293578.svg</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>$description$</description>
+        <releaseNotes>Bionic Plugin</releaseNotes>
+        <copyright>Apache 2 Licensed</copyright>
+        <packageTypes>
+            <packageType name="Dependency" />
+        </packageTypes>
+        <tags>bionic blazor ionic plugin bruno santos</tags>
+    </metadata>
+</package>

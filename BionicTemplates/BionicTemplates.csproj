@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Bionic Templates - Templates for CLI generate command</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content/**/*.cshtml;content/**/*.scss;content/**/*.cs" />
+    <Content Include="content\Components\.template.config\template.json" />
+    <Content Include="content\Layouts\.template.config\template.json" />
+    <Content Include="content\Pages\.template.config\template.json" />
+    <Content Include="content\Services\.template.config\template.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="content/**/*.cs" />
+  </ItemGroup>
+  
+</Project>
