@@ -37,14 +37,20 @@ namespace Bionic.Commands {
         return 0;
       }
 
-      if (IsPackageAvailable(packageId)) {
-        Console.WriteLine($"☕  Found it! Adding {PlatformName} plugin...");
-        Console.WriteLine(InstallPackage(packageId)
-          ? $"🚀  {PlatformName} platform successfully added"
-          : $"☠  Something went wrong while trying to add platform plugin named: {PlatformName}");
+      try {
+        if (IsPackageAvailable(packageId)) {
+          Console.WriteLine($"☕  Found it! Adding {PlatformName} plugin...");
+          Console.WriteLine(InstallPackage(packageId)
+            ? $"🚀  {PlatformName} platform successfully added"
+            : $"☠  Something went wrong while trying to add platform plugin named: {PlatformName}");
+        }
+        else {
+          Console.WriteLine($"😟  Bionic was unable to find a platform plugin named: {PlatformName}");
+        }
       }
-      else {
-        Console.WriteLine($"😟  Bionic was unable to find a platform plugin named: {PlatformName}");
+      catch (Exception) {
+        Console.WriteLine("☠  Bionic needs nuget to be available in PATH. Please install nuget CLI.");
+        return 1;
       }
 
       return 0;

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <Description>Bionic Templates - Templates for CLI generate command</Description>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
