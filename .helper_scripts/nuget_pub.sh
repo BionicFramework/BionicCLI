@@ -14,6 +14,8 @@ if [ -z "${NUGET_BIONIC_KEY}" ]
     exit 1
 fi
 
+dotnet pack -c Release /p:SourceLinkCreate=true /p:VersionSuffix= /p:OfficialBuild=true
+
 echo "Pushing Bionic.$1.nupkg to NuGet..."
 dotnet nuget push ./Bionic/nupkg/Bionic.$1.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_BIONIC_KEY}
 if [ $? = 0 ]
