@@ -18,7 +18,7 @@ namespace Bionic.Plugin {
 
       var plugins = Directory.GetDirectories($"{Directory.GetCurrentDirectory()}/.bionic", "Bionic*Plugin");
       foreach (var path in plugins) {
-        var fp = $"{path}/lib/netstandard2.0/{new DirectoryInfo(path).Name}.dll";
+        var fp = $"{path}/lib/netcoreapp2.1/{new DirectoryInfo(path).Name}.dll";
         var a = AssemblyLoader.LoadFromAssemblyPath(fp);
 
         IList<Type> commandPluginTypes = (

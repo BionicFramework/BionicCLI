@@ -21,6 +21,10 @@ dotnet pack -c Release /p:SourceLinkCreate=true /p:VersionSuffix= /p:OfficialBui
 ## Install or upgrade local Bionic version using latest package:
 
 ```bash
+dotnet tool install -g Bionic --add-source ./nupkg
+```
+
+```bash
 dotnet tool update -g Bionic --add-source ./nupkg
 ```
 
