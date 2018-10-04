@@ -6,14 +6,14 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/bmsantos/BionicTemplates</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/BionicFramework/BionicCLI</projectUrl>
     <iconUrl>https://vectr.com/bmsantos/a2sGndBV8e.svg?width=256&amp;height=256&amp;select=a2sGndBV8epage0</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Bionic Templates</releaseNotes>
-    <copyright>Apache 2 Licensed</copyright>
-    <tags>bionic blazor ionic bruno santos</tags>
+    <releaseNotes></releaseNotes>
+    <copyright>(c) Bionic Framework Contributors. All rights reserved.</copyright>
+    <tags>ASP.NET Core, Blazor, Bionic, Ionic, Android, iOS, PWA, Electron, Capacitor</tags>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bionic", "Bionic\bionic.csproj", "{030D43E5-89C6-463D-80EC-9811366D8292}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionic", "Bionic\Bionic.csproj", "{030D43E5-89C6-463D-80EC-9811366D8292}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicPlugin", "BionicPlugin\BionicPlugin.csproj", "{E07A0460-BE2D-418E-A3D2-1AD54D44081D}"
 EndProject
