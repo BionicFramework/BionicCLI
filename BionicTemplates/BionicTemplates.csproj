@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="content/**/*.cs" />
+    <Compile Remove="content/**/*.*;" />
   </ItemGroup>
   
 </Project>
