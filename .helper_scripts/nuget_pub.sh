@@ -2,7 +2,7 @@
 
 source ~/.nuget_bionic_key
 
-DIR=$(dirname "$(readlink -f "$BASH_SOURCE")")
+DIR=$(dirname "$0")
 
 if [ -z "$1" ]
   then
