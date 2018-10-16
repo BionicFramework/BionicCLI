@@ -1,6 +1,4 @@
-using Bionic.Project;
-
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   public interface ICommand {
     int Execute();
   }

@@ -1,9 +1,11 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Generate Blazor layout")]
   public class GenerateLayoutCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
@@ -11,21 +13,21 @@ namespace Bionic.Commands {
 
     public GenerateCommand Parent { get; }
 
-    public GenerateLayoutCmd() {}
+    public GenerateLayoutCmd() { }
 
-    public GenerateLayoutCmd(string artifact) => this.Artifact = artifact;
+    public GenerateLayoutCmd(string artifact) => Artifact = artifact;
 
     protected override int OnExecute(CommandLineApplication app) => GenerateLayout();
 
     public int Execute() => GenerateLayout();
 
     private int GenerateLayout() {
-      Console.WriteLine($"🚀  Generating a layout named {Artifact}");
+      Logger.Success($"Generating a layout named {Artifact}");
       Process.Start(
         DotNetExe.FullPathOrDefault(),
-        $"new bionic.layout -n {Artifact} -o ./Layouts"
+        "new bionic.layout -n {Artifact} -o " + ToOSPath("./Layouts")
       )?.WaitForExit();
-      return GenerateCommand.IntroduceAppCssImport($"Layouts", Artifact);
+      return GenerateCommand.IntroduceAppCssImport("Layouts", Artifact);
     }
   }
 }

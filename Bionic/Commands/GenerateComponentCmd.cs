@@ -1,9 +1,11 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Generate Blazor component")]
   public class GenerateComponentCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
@@ -11,21 +13,21 @@ namespace Bionic.Commands {
 
     public GenerateCommand Parent { get; }
 
-    public GenerateComponentCmd() {}
+    public GenerateComponentCmd() { }
 
-    public GenerateComponentCmd(string artifact) => this.Artifact = artifact;
+    public GenerateComponentCmd(string artifact) => Artifact = artifact;
 
     protected override int OnExecute(CommandLineApplication app) => GenerateComponent();
 
     public int Execute() => GenerateComponent();
 
     private int GenerateComponent() {
-      Console.WriteLine($"🚀  Generating a component named {Artifact}");
+      Logger.Success($"Generating a component named {Artifact}");
       Process.Start(
         DotNetExe.FullPathOrDefault(),
-        $"new bionic.component -n {Artifact} -o ./Components"
+        "new bionic.component -n {Artifact} -o " + ToOSPath("./Components")
       )?.WaitForExit();
-      return GenerateCommand.IntroduceAppCssImport($"Components", Artifact);
+      return GenerateCommand.IntroduceAppCssImport("Components", Artifact);
     }
   }
 }
