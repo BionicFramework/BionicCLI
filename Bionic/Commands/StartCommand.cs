@@ -2,12 +2,14 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Bionic.Factories;
-using Bionic.Project;
-using Bionic.Utils;
+using BionicCLI.Factories;
+using BionicCore;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Prepares Blazor project to mimic Ionic structure")]
   public class StartCommand : CommandBase, ICommand {
     private const string StartupPath = "Startup.cs";
@@ -23,12 +25,12 @@ namespace Bionic.Commands {
     public BionicCommandFactory Parent { get; }
 
     private static int SetupBionic() {
-      Console.WriteLine($"🤖  Preparing your Bionic Project...");
+      Logger.Info("Preparing your Bionic Project...");
 
       // 1. Get project file name
       var projectFiles = ProjectHelper.GetProjectFiles();
       if (projectFiles.IsNullOrEmpty()) {
-        Console.WriteLine($"☠ No C# project found. Please make sure you are in the root of a C# project.");
+        Logger.Error("No C# project found. Please make sure you are in the root of a C# project.");
         return 1;
       }
 
@@ -50,7 +52,7 @@ namespace Bionic.Commands {
               promptColor: ConsoleColor.DarkGreen
             );
             if (!alreadyStarted) {
-              Console.WriteLine("Ok! Bionic start canceled.");
+              Logger.Confirm("Ok! Bionic start canceled.");
               return 0;
             }
           }
@@ -74,7 +76,7 @@ namespace Bionic.Commands {
           // 1. Its Hosted ... Inject targets in .csproj
           var client = projectFiles.FirstOrDefault(p => p.projectType == ProjectType.HostedClient);
           if (client.filename == null) {
-            Console.WriteLine("☠  Unable to start project. Client directory for Hosted Blazor project was not found.");
+            Logger.Error("Unable to start project. Client directory for Hosted Blazor project was not found.");
             return 1;
           }
 
@@ -102,7 +104,7 @@ namespace Bionic.Commands {
 
     private static void InjectAppCssInIndexHtml() {
       FileHelper.SeekForLineStartingWithAndInsert(
-        "wwwroot/index.html",
+        ToOSPath("wwwroot/index.html"),
         "    <link href=\"css/site.css",
         "    <link href=\"css/App.css\" rel=\"stylesheet\" />",
         false
@@ -163,7 +165,7 @@ namespace Bionic.Commands {
         }
       }
       catch (Exception e) {
-        Console.WriteLine($"Failed to update Startup.cs: {e.Message}");
+        Logger.Error($"Failed to update Startup.cs: {e.Message}");
         return 1;
       }
 

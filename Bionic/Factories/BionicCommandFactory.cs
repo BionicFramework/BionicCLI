@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
-using Bionic.Commands;
+using BionicCLI.Commands;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace Bionic.Factories {
+namespace BionicCLI.Factories {
   [Command(Description = "🤖 Bionic - An Ionic CLI clone for Blazor projects")]
   [Subcommand("blast", typeof(BlastCommand))]
   [Subcommand("docs", typeof(DocsCommand))]
@@ -51,8 +50,8 @@ namespace Bionic.Factories {
 
       if (generate) return new GenerateCommand(option, artifact).Execute();
 
-      Console.WriteLine("☠  You must provide a valid project command!");
-      Console.WriteLine($"   Available Project Commands: {string.Join(", ", commandOptions)}");
+      Logger.Error("You must provide a valid project command!");
+      Logger.Log($"   Available Project Commands: {string.Join(", ", commandOptions)}");
       return 0;
     }
   }

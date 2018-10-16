@@ -3,10 +3,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Bionic.Project;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Add available Bionic platforms to project")]
   public class AddPlatformCmd : CommandBase, ICommand {
     [Argument(0, Description = "Platform Name (electron, capacitor)"), Required]
@@ -16,40 +18,42 @@ namespace Bionic.Commands {
 
     public AddPlatformCmd() { }
 
-    public AddPlatformCmd(string platformName) => this.PlatformName = platformName;
+    public AddPlatformCmd(string platformName) => PlatformName = platformName;
 
     protected override int OnExecute(CommandLineApplication app) => AddPlatform();
 
     public int Execute() => AddPlatform();
 
     private int AddPlatform() {
-      Console.WriteLine($"🔍  Looking for {PlatformName} platform plugin");
+      Logger.Search($"Looking for {PlatformName} platform plugin");
 
       var packageId = $"bionic{PlatformName}plugin";
 
       if (!ProjectHelper.InClientOrStandaloneDir()) {
-        Console.WriteLine($"☠  Must be in a Blazor Standalone or Client (if Hosted) directory");
+        Logger.Error("Must be in a Blazor Standalone or Client (if Hosted) directory");
         return 0;
       }
 
-      if (Directory.Exists($".bionic/{packageId}")) {
-        Console.WriteLine($"🚀  {PlatformName} platform is already available");
+      if (Directory.Exists(ToOSPath($".bionic/{packageId}"))) {
+        Logger.Success($"{PlatformName} platform is already available");
         return 0;
       }
 
       try {
         if (IsPackageAvailable(packageId)) {
-          Console.WriteLine($"☕  Found it! Adding {PlatformName} plugin...");
-          Console.WriteLine(InstallPackage(packageId)
-            ? $"🚀  {PlatformName} platform successfully added"
-            : $"☠  Something went wrong while trying to add platform plugin named: {PlatformName}");
+          Logger.Preparing($"Found it! Adding {PlatformName} plugin...");
+          Logger.OnSuccessOtherwiseError(
+            InstallPackage(packageId),
+            $"{PlatformName} platform successfully added",
+            $"Something went wrong while trying to add platform plugin named: {PlatformName}"
+          );
         }
         else {
-          Console.WriteLine($"😟  Bionic was unable to find a platform plugin named: {PlatformName}");
+          Logger.Sorry($"Bionic was unable to find a platform plugin named: {PlatformName}");
         }
       }
       catch (Exception) {
-        Console.WriteLine("☠  Bionic needs nuget to be available in PATH. Please install nuget CLI.");
+        Logger.Error("Bionic needs nuget to be available in PATH. Please install nuget CLI.");
         return 1;
       }
 
@@ -97,7 +101,7 @@ namespace Bionic.Commands {
         return true;
       }
 
-      Console.WriteLine(output);
+      Logger.Log(output);
       return false;
     }
   }

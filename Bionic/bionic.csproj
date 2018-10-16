@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BionicCore\BionicCore.csproj" />
     <ProjectReference Include="..\BionicPlugin\BionicPlugin.csproj" />
   </ItemGroup>
 

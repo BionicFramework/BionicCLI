@@ -4,13 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Bionic.Factories;
+using BionicCLI.Factories;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Execute Bionic Blast scripts")]
   public class BlastCommand : CommandBase, ICommand {
-    private const string BlastFile = ".bionic/bionic.blast";
+    private static readonly string BlastFile = ToOSPath(".bionic/bionic.blast");
 
     [Argument(0, Description = "Target script to execute"), Required]
     private string Target { get; set; }
@@ -23,21 +26,21 @@ namespace Bionic.Commands {
 
     private int ExecuteBlasterScript() {
       var cd = Directory.GetCurrentDirectory();
-      if (!File.Exists($"{cd}/{BlastFile}")) {
-        Console.WriteLine($"☠  Could not find {BlastFile} in current directory. Are you in a Blazor Standalone or Client project directory?");
+      if (!File.Exists(ToOSPath($"{cd}/{BlastFile}"))) {
+        Logger.Error($"Could not find {BlastFile} in current directory. Are you in a Blazor Standalone or Client project directory?");
         return 1;
       }
 
       try {
-        var model = BuildBlastingModel($"{cd}/{BlastFile}");
+        var model = BuildBlastingModel(ToOSPath($"{cd}/{BlastFile}"));
         RunScript(Target, model);
       }
       catch (Exception e) {
-        Console.WriteLine(e.Message);
+        Logger.Error(e.Message);
         return 1;
       }
 
-      Console.WriteLine($"🚀  Blasting complete!");
+      Logger.Success("Blasting complete!");
 
       return 0;
     }
@@ -52,7 +55,7 @@ namespace Bionic.Commands {
         BuildCommandList(cmds, targetCmds, model); // TODO: Create stack execution machine for improved sub-target sharing 
         
         cmds.ForEach(cmd => {
-          Console.WriteLine($"Executing: {cmd}");
+          Logger.Task($"Executing: {cmd}");
           // TODO: introduce "interactive" option and allow user to decide to continue or stop scripts in the case
           // of a non-zero return code.
           RunProcess(cmd);
@@ -61,7 +64,7 @@ namespace Bionic.Commands {
         return true;
       }
       
-      Console.WriteLine($"☠  Can't zap! Blast script {target} not available. Check your {BlastFile} for possible issues");
+      Logger.Error($"Can't zap! Blast script {target} not available. Check your {BlastFile} for possible issues");
       return false;
     }
 
@@ -72,7 +75,7 @@ namespace Bionic.Commands {
             BuildCommandList(cmds, model[cmd], model);
           }
           else {
-            throw new Exception($"☠  Can't zap! Blast script sub-target {cmd} not available or already processed. Processed commands are removed to avoid cyclic references.");
+            throw new Exception("Can't zap! Blast script sub-target {cmd} not available or already processed. Processed commands are removed to avoid cyclic references.");
           }
         }
         else {
@@ -94,7 +97,7 @@ namespace Bionic.Commands {
         process?.WaitForExit();
       }
       catch (Exception e) {
-        Console.WriteLine($"Failed to execute command \"{cmds[0]} {cmds[1]}\": {e.Message}");
+        Logger.Error($"Failed to execute command \"{cmds[0]} {cmds[1]}\": {e.Message}");
       }
 
       return process?.ExitCode ?? 1;

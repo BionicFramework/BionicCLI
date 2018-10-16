@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using Bionic.Factories;
-using Bionic.Project;
-using Bionic.Utils;
+using BionicCLI.Factories;
+using BionicCore;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Generate pages, layouts, components or services/providers")]
   [Subcommand("page", typeof(GeneratePageCmd))]
   [Subcommand("component", typeof(GenerateComponentCmd))]
@@ -29,8 +26,8 @@ namespace Bionic.Commands {
     public GenerateCommand() {}
 
     public GenerateCommand(string option, string artifact) {
-      this._option = option;
-      this._artifact = artifact;
+      _option = option;
+      _artifact = artifact;
     }
 
     protected override int OnExecute(CommandLineApplication app) {
@@ -42,8 +39,8 @@ namespace Bionic.Commands {
 
     private bool IsGenerateCommandComplete() {
       if (_option != null && !GenerateOptions.Contains(_option)) {
-        Console.WriteLine($"☠  Can't generate \"{_option}\"");
-        Console.WriteLine($"   You can only generate: {string.Join(", ", GenerateOptions)}");
+        Logger.Error($"Can't generate \"{_option}\"");
+        Logger.Log($"   You can only generate: {string.Join(", ", GenerateOptions)}");
         return false;
       }
 

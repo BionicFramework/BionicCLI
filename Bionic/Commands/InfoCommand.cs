@@ -1,9 +1,10 @@
-using System;
-using Bionic.Factories;
-using Bionic.Utils;
+using BionicCLI.Factories;
+using BionicCore;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Print environment info")]
   public class InfoCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => Info();
@@ -14,7 +15,7 @@ namespace Bionic.Commands {
 
     private static int Info() {
       new VersionCommand().Execute();
-      Console.WriteLine();
+      Logger.NewLine();
       return DotNetHelper.RunDotNet("--info");
     }
   }

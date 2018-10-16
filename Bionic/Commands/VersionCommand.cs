@@ -1,9 +1,11 @@
 using System;
 using System.Reflection;
-using Bionic.Factories;
+using BionicCLI.Factories;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Print Bionic serial number")]
   public class VersionCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => PrintVersion();

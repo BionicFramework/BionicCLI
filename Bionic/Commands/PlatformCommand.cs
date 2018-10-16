@@ -1,8 +1,10 @@
-using Bionic.Factories;
-using Bionic.Plugin;
+using BionicCLI.Factories;
+using BionicCLI.Plugin;
+using BionicCore.Project;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace Bionic.Commands {
+namespace BionicCLI.Commands {
   [Command(Description = "Manage available platforms")]
   [Subcommand("add", typeof(AddPlatformCmd))]
   [LoadPluginCommands]
