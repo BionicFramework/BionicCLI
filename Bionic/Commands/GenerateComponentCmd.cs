@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using BionicCore.Project;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -23,10 +22,7 @@ namespace BionicCLI.Commands {
 
     private int GenerateComponent() {
       Logger.Success($"Generating a component named {Artifact}");
-      Process.Start(
-        DotNetExe.FullPathOrDefault(),
-        "new bionic.component -n {Artifact} -o " + ToOSPath("./Components")
-      )?.WaitForExit();
+      DotNetHelper.RunDotNet("new bionic.component -n {Artifact} -o " + ToOSPath("./Components"));
       return GenerateCommand.IntroduceAppCssImport("Components", Artifact);
     }
   }

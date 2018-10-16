@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using BionicCore.Project;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -23,10 +22,7 @@ namespace BionicCLI.Commands {
 
     private int GenerateLayout() {
       Logger.Success($"Generating a layout named {Artifact}");
-      Process.Start(
-        DotNetExe.FullPathOrDefault(),
-        "new bionic.layout -n {Artifact} -o " + ToOSPath("./Layouts")
-      )?.WaitForExit();
+      DotNetHelper.RunDotNet("new bionic.layout -n {Artifact} -o " + ToOSPath("./Layouts"));
       return GenerateCommand.IntroduceAppCssImport("Layouts", Artifact);
     }
   }

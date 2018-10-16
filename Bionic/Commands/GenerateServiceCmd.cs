@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Text.RegularExpressions;
-using BionicCore.Project;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -29,12 +28,7 @@ namespace BionicCLI.Commands {
 
     private int GenerateService() {
       Logger.Success($"Generating a service named {Artifact}");
-      var process = Process.Start(
-        DotNetExe.FullPathOrDefault(),
-        ToOSPath($"new bionic.service -n {Artifact} -o ./Services")
-      );
-      process?.WaitForExit();
-      return process?.ExitCode ?? 1;
+      return DotNetHelper.RunDotNet(ToOSPath($"new bionic.service -n {Artifact} -o ./Services"));
     }
   }
 }

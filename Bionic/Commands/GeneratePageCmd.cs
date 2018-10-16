@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using BionicCore.Project;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -23,10 +22,8 @@ namespace BionicCLI.Commands {
 
     private int GeneratePage() {
       Logger.Success($"Generating a page named {Artifact}");
-      Process.Start(
-        DotNetExe.FullPathOrDefault(),
-        $"new bionic.page -n {Artifact} -p /{GenerateCommand.ToPageName(Artifact)} -o " + ToOSPath("./Pages")
-      )?.WaitForExit();
+      DotNetHelper.RunDotNet(
+        $"new bionic.page -n {Artifact} -p /{GenerateCommand.ToPageName(Artifact)} -o " + ToOSPath("./Pages"));
       return GenerateCommand.IntroduceAppCssImport("Pages", Artifact);
     }
   }

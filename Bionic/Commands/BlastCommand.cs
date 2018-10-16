@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using BionicCLI.Factories;
-using BionicCore.Project;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -87,20 +86,14 @@ namespace BionicCLI.Commands {
 
     private static int RunProcess(string cmd) {
       var cmds = cmd.Split(new [] { ' ' }, 2);
-      Process process = null;
       try {
-        process = Process.Start(
-          new ProcessStartInfo(cmds[0], cmds[1]) {
-            UseShellExecute = false
-          }
-        );
-        process?.WaitForExit();
+        return ProcessHelper.RunCmd(cmds[0], cmds[1]);
       }
       catch (Exception e) {
         Logger.Error($"Failed to execute command \"{cmds[0]} {cmds[1]}\": {e.Message}");
       }
 
-      return process?.ExitCode ?? 1;
+      return 1;
     }
     
     private static Dictionary<string, IList<string>> BuildBlastingModel(string path) {

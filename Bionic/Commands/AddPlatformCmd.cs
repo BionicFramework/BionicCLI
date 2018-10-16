@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using BionicCore;
 using BionicCore.Project;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
@@ -61,18 +62,7 @@ namespace BionicCLI.Commands {
     }
 
     private static bool IsPackageAvailable(string packageID) {
-      var output = "";
-      var process = Process.Start(
-        new ProcessStartInfo("nuget", $"list {packageID}") {
-          CreateNoWindow = true,
-          UseShellExecute = false,
-          RedirectStandardOutput = true
-        }
-      );
-      process.OutputDataReceived += (sender, args) => output += args.Data;
-      process.Start();
-      process.BeginOutputReadLine();
-      process.WaitForExit();
+      var output = ProcessHelper.RunCmdAndCaptureOutput("nuget", $"list {packageID}").Item2;
 
       var entries = output.Split(
         new[] {Environment.NewLine},
@@ -83,18 +73,8 @@ namespace BionicCLI.Commands {
     }
 
     private static bool InstallPackage(string packageID) {
-      var output = "";
-      var process = Process.Start(
-        new ProcessStartInfo("nuget",
-          $"install {packageID} -DirectDownload -ExcludeVersion -PackageSaveMode nuspec -o .bionic") {
-          CreateNoWindow = true,
-          UseShellExecute = false,
-          RedirectStandardOutput = true
-        });
-      process.OutputDataReceived += (sender, args) => output += args.Data;
-      process.Start();
-      process.BeginOutputReadLine();
-      process.WaitForExit();
+      var output = ProcessHelper.RunCmdAndCaptureOutput("nuget",
+        $"install {packageID} -DirectDownload -ExcludeVersion -PackageSaveMode nuspec -o .bionic").Item2;
 
       var entries = output.Split(Environment.NewLine);
       if (entries.Any(entry => entry.Contains("Successfully installed"))) {
@@ -104,5 +84,6 @@ namespace BionicCLI.Commands {
       Logger.Log(output);
       return false;
     }
+
   }
 }
