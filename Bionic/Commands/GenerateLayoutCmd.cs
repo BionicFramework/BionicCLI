@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
@@ -9,6 +10,9 @@ namespace BionicCLI.Commands {
   public class GenerateLayoutCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
     private string Artifact { get; set; }
+
+    [Option("-n|--no-styles", Description = "Do not generate page style file")]
+    private bool noStyles { get; set; } = false;
 
     public GenerateCommand Parent { get; }
 
@@ -22,8 +26,10 @@ namespace BionicCLI.Commands {
 
     private int GenerateLayout() {
       Logger.Success($"Generating a layout named {Artifact}");
-      DotNetHelper.RunDotNet("new bionic.layout -n {Artifact} -o " + ToOSPath("./Layouts"));
-      return GenerateCommand.IntroduceAppCssImport("Layouts", Artifact);
+      var dest = ToOSPath("./Layouts");
+      DotNetHelper.RunDotNet($"new bionic.layout -n {Artifact} -o {dest}");
+      if (noStyles) File.Delete($"{dest}/{Artifact}.scss");
+      return noStyles ? 0 : GenerateCommand.IntroduceAppCssImport("Layouts", Artifact);
     }
   }
 }
