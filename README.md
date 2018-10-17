@@ -18,7 +18,11 @@ Build web apps [Blazor](https://blazor.net) fast that run at [WASM speed](https:
 
 [![YouTube Video](https://img.youtube.com/vi/NONCv-i4Q34/0.jpg)](https://youtu.be/NONCv-i4Q34)
 
-[Documentation](http://bmsantos.github.com/bionic) is now available.
+[Documentation](https://bionicframework.github.io/Documentation/) is now available.
+
+[YouTube Channel](https://www.youtube.com/playlist?list=PLLxOHqHInCELJjnvN_rCKx5pa_53Utjr7)
+
+[Update Blog](https://bionicframework.github.io/Documentation/platforms/capacitor/0intro/)
 
 ## Quick Start
 

@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using BionicCLI.Factories;
-using BionicCore.Project;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -18,7 +17,7 @@ namespace BionicCLI.Commands {
       var informationalVersion = ((AssemblyInformationalVersionAttribute) Attribute.GetCustomAttribute(
           Assembly.GetExecutingAssembly(), typeof(AssemblyInformationalVersionAttribute), false))
         .InformationalVersion;
-      Console.WriteLine($"🤖 Bionic v{informationalVersion}");
+      Logger.Info($"Bionic v{informationalVersion}");
       return 0;
     }
   }

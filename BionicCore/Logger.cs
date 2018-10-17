@@ -10,11 +10,11 @@ namespace BionicCLI {
 
     public static void Info(string msg) => Log($"{OnWindows("d[ʘ_Ф]b", "🤖")}  {msg}");
 
-    public static void Confirm(string msg) => Log($"{OnWindows(@"d[ʘ_ʘ]b", "👍")}  {msg}");
+    public static void Confirm(string msg) => Log($"{OnWindows(@"d[O_O]b", "👍")}  {msg}");
 
-    public static void Error(string msg) => Log($"{OnWindows(@"¯\(°_o)/¯", "☠")}  {msg}");
+    public static void Error(string msg) => Log($"{OnWindows(@"'\(°_o)/`", "☠")}  {msg}");
 
-    public static void Search(string msg) => Log($"{OnWindows("(⌐ʘ_ʘ)", "🔍")}  {msg}");
+    public static void Search(string msg) => Log($"{OnWindows("(⌐O_O)", "🔍")}  {msg}");
 
     public static void Success(string msg) => Log($"{OnWindows("(⌐■_■)", "🚀")}  {msg}");
 
