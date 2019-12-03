@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using BionicCore;
+using BionicCore.Project;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -27,9 +28,17 @@ namespace BionicCLI.Commands {
     private int GenerateComponent() {
       Logger.Success($"Generating a component named {Artifact}");
       var dest = ToOSPath("./Components");
-      DotNetHelper.RunDotNet($"new bionic.component -n {Artifact} -o {dest}");
+      int dotnetRun = DotNetHelper.RunDotNet($"new bionic.component -n {Artifact} -o {dest}");
       if (noStyles) File.Delete($"{dest}/{Artifact}.scss");
-      return noStyles ? 0 : GenerateCommand.IntroduceAppCssImport("Components", Artifact);
+      int ccssResult = noStyles ? 0 : GenerateCommand.IntroduceAppCssImport("Components", Artifact);
+
+      string projectName = ProjectHelper.GetProjectName();
+
+      string usingString = $"@using {projectName}.Components\n";
+      if (FileHelper.FileContains("_imports.razor", usingString)) return dotnetRun | ccssResult; 
+      int importResult = FileHelper.InsertLast("_imports.razor", usingString);
+
+      return dotnetRun | ccssResult | importResult;
     }
   }
 }

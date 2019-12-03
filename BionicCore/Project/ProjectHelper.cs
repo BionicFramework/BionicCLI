@@ -30,6 +30,12 @@ namespace BionicCore.Project {
       return projectInfoList;
     }
 
+    public static string GetProjectName() {
+      var projectFiles = Directory.GetFiles(ToOSPath("./"), "*.csproj", SearchOption.TopDirectoryOnly);
+      if (projectFiles.Length == 0) return null;
+      return Path.GetFileName(projectFiles[0]).Replace(".csproj", "");
+    }
+    
     private static ProjectInfo[] GetProjectInfoList() {
       var projectFiles = Directory.GetFiles(ToOSPath("./"), "*.csproj", SearchOption.AllDirectories);
       return projectFiles.ToList().ConvertAll(path => {

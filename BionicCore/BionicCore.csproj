@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0-preview3.19553.2" />
   </ItemGroup>
 
   <ItemGroup>

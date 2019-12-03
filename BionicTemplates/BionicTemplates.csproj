@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="content/**/*.cshtml;content/**/*.scss;content/**/*.cs" />
+    <Content Include="content/**/*.cshtml;content/**/*.razor;content/**/*.scss;content/**/*.cs" />
     <Content Include="content\Components\.template.config\template.json" />
     <Content Include="content\Layouts\.template.config\template.json" />
     <Content Include="content\Pages\.template.config\template.json" />
