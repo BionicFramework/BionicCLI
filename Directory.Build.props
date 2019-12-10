@@ -4,7 +4,7 @@
     <Authors>Bionic Framework Contributors</Authors>
     <Product>Bionic Framework</Product>
     <Copyright>(c) Bionic Framework Contributors. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</PackageLicenseUrl>
+    <PackageLicense>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</PackageLicense>
     <PackageProjectUrl>https://github.com/BionicFramework/BionicCLI</PackageProjectUrl>
     <PackageIconUrl>https://vectr.com/bmsantos/a2sGndBV8e.svg?width=256&amp;height=256&amp;select=a2sGndBV8epage0</PackageIconUrl>
     <PackageTags>ASP.NET Core, Blazor, Bionic, Ionic, Android, iOS, PWA, Electron</PackageTags>
