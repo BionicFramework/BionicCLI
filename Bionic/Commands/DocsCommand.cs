@@ -5,7 +5,7 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Open Blazor documentation page in browser")]
+  [Command("docs", Description = "Open Blazor documentation page in browser")]
   public class DocsCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => OpenBlazorDocs();
 

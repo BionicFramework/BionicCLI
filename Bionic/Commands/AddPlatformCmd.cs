@@ -10,7 +10,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Add available Bionic platforms to project")]
+  [Command("add" ,Description = "Add available Bionic platforms to project")]
   public class AddPlatformCmd : CommandBase, ICommand {
     [Argument(0, Description = "Platform Name (electron, capacitor)"), Required]
     private string PlatformName { get; set; }

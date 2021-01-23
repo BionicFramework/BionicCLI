@@ -7,7 +7,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Generate Blazor component")]
+  [Command("component", Description = "Generate Blazor component")]
   public class GenerateComponentCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
     private string Artifact { get; set; }

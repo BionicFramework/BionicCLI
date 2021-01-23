@@ -1,13 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	  <TargetFramework>net5.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

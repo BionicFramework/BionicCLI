@@ -5,7 +5,7 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Update Bionic to its latest incarnation")]
+  [Command("update", Description = "Update Bionic to its latest incarnation")]
   public class UpdateCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => UpdateBionic();
 

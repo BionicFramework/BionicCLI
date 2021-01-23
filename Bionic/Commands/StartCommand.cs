@@ -10,7 +10,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Prepares Blazor project to mimic Ionic structure")]
+  [Command("start", Description = "Prepares Blazor project to mimic Ionic structure")]
   public class StartCommand : CommandBase, ICommand {
     private const string StartupPath = "Startup.cs";
 

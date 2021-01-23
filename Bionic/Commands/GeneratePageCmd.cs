@@ -6,7 +6,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Generate Blazor page")]
+  [Command("page", Description = "Generate Blazor page")]
   public class GeneratePageCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
     private string Artifact { get; set; }

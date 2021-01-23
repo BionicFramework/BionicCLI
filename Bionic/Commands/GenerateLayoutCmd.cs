@@ -6,7 +6,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Generate Blazor layout")]
+  [Command("layout", Description = "Generate Blazor layout")]
   public class GenerateLayoutCmd : CommandBase, ICommand {
     [Argument(0, Description = "Artifact Name"), Required]
     private string Artifact { get; set; }

@@ -8,12 +8,12 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Generate pages, layouts, components or services/providers")]
-  [Subcommand("page", typeof(GeneratePageCmd))]
-  [Subcommand("component", typeof(GenerateComponentCmd))]
-  [Subcommand("service", typeof(GenerateServiceCmd))]
-  [Subcommand("provider", typeof(GenerateServiceCmd))]
-  [Subcommand("layout", typeof(GenerateLayoutCmd))]
+  [Command("generate", Description = "Generate pages, layouts, components or services/providers")]
+  [Subcommand(typeof(GeneratePageCmd))]
+  [Subcommand(typeof(GenerateComponentCmd))]
+  [Subcommand(typeof(GenerateServiceCmd))]
+  [Subcommand(typeof(GenerateServiceCmd))]
+  [Subcommand(typeof(GenerateLayoutCmd))]
   public class GenerateCommand : CommandBase, ICommand {
     private static readonly List<string> GenerateOptions = new List<string>
       {"component", "layout", "page", "provider", "service"};
