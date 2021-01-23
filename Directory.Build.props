@@ -25,8 +25,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TestProjectTargetFramework>netcoreapp2.1</TestProjectTargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
+    <TestProjectTargetFramework>net5.0</TestProjectTargetFramework>
   </PropertyGroup>
 
   <!-- Configure source link: https://github.com/ctaggart/SourceLink -->

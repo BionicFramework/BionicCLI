@@ -1,12 +1,12 @@
 {
   "author": "Bionic Framework Contributors",
   "classifications": [ "Web/Blazor" ],
-  "name": "Bionic Service Template",
   "identity": "Bionic.Service.Template",
+  "name": "Bionic Service Template",
+  "preferNameDirectory": "true",
   "shortName": "bionic.service",
+  "sourceName": "MyService",
   "tags": {
     "language": "C#"
-  },
-  "sourceName": "MyService",
-  "preferNameDirectory" : "true"
+  }
 }

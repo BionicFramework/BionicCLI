@@ -12,7 +12,6 @@ namespace BionicCLI.Commands {
   [Subcommand(typeof(GeneratePageCmd))]
   [Subcommand(typeof(GenerateComponentCmd))]
   [Subcommand(typeof(GenerateServiceCmd))]
-  [Subcommand(typeof(GenerateServiceCmd))]
   [Subcommand(typeof(GenerateLayoutCmd))]
   public class GenerateCommand : CommandBase, ICommand {
     private static readonly List<string> GenerateOptions = new List<string>

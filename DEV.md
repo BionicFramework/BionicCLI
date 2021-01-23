@@ -33,8 +33,8 @@ dotnet tool update -g Bionic --add-source ./nupkg
 ### Using the latest DLL
 
 ```bash
-dotnet ./bin/Debug/netcoreapp2.1/Bionic.dll -v
-dotnet ./bin/Release/netcoreapp2.1/Bionic.dll -v
+dotnet ./bin/Debug/net5.0/Bionic.dll -v
+dotnet ./bin/Release/net5.0/Bionic.dll -v
 ```
 
 ### Using the CLI

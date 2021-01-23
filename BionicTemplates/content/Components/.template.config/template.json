@@ -1,12 +1,12 @@
 {
   "author": "Bionic Framework Contributors",
   "classifications": [ "Web/Blazor" ],
-  "name": "Bionic Component Template",
   "identity": "Bionic.Component.Template",
+  "name": "Bionic Component Template",
+  "preferNameDirectory": "true",
   "shortName": "bionic.component",
+  "sourceName": "MyComponent",
   "tags": {
     "language": "C#"
-  },
-  "sourceName": "MyComponent",
-  "preferNameDirectory" : "true",
+  }
 }
