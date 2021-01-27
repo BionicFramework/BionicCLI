@@ -6,9 +6,9 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</licenseUrl>
+	<license type="expression">MIT</license>
     <projectUrl>https://github.com/BionicFramework/BionicCLI</projectUrl>
-    <iconUrl>https://vectr.com/bmsantos/a2sGndBV8e.svg?width=256&amp;height=256&amp;select=a2sGndBV8epage0</iconUrl>
+    <icon>bionic_logo_icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes></releaseNotes>

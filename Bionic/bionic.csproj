@@ -9,6 +9,7 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <PackageOutputPath>./nupkg</PackageOutputPath>
 	<TargetFramework>net5.0</TargetFramework>
+	<PackageIcon>bionic_logo_icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,13 @@
 
   <ItemGroup>
     <_UnmanagedRegistrationCache Remove="obj\Bionic.csproj.UnmanagedRegistration.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\bionic_logo_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

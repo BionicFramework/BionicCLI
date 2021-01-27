@@ -4,9 +4,9 @@
     <Authors>Bionic Framework Contributors</Authors>
     <Product>Bionic Framework</Product>
     <Copyright>(c) Bionic Framework Contributors. All rights reserved.</Copyright>
-    <PackageLicense>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</PackageLicense>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/BionicFramework/BionicCLI</PackageProjectUrl>
-    <PackageIconUrl>https://vectr.com/bmsantos/a2sGndBV8e.svg?width=256&amp;height=256&amp;select=a2sGndBV8epage0</PackageIconUrl>
+    <PackageIcon>..\..\bionic_logo_icon.png</PackageIcon>
     <PackageTags>ASP.NET Core, Blazor, Bionic, Ionic, Android, iOS, PWA, Electron</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
     <RepositoryUrl>https://github.com/BionicFramework/BionicCLI</RepositoryUrl>
@@ -39,7 +39,7 @@
   <!-- Versioning properties -->
   <PropertyGroup>
     <VersionPrefix Condition=" '$(VersionPrefix)'=='' ">1.0.27</VersionPrefix>
-    <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">dev</VersionSuffix>
+    <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">dev-local</VersionSuffix>
   </PropertyGroup>
 
   <Choose>

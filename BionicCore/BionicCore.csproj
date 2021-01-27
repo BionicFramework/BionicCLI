@@ -4,6 +4,7 @@
 	  <TargetFramework>net5.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageIcon>bionic_logo_icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,13 @@
 
   <ItemGroup>
     <Folder Include="nupkg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\bionic_logo_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
