@@ -4,16 +4,16 @@ using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Factories {
   [Command(Description = "🤖 Bionic - An Ionic CLI clone for Blazor projects")]
-  [Subcommand("blast", typeof(BlastCommand))]
-  [Subcommand("docs", typeof(DocsCommand))]
-  [Subcommand("generate", typeof(GenerateCommand))]
-  [Subcommand("info", typeof(InfoCommand))]
-  [Subcommand("platform", typeof(PlatformCommand))]
-  [Subcommand("serve", typeof(ServeCommand))]
-  [Subcommand("start", typeof(StartCommand))]
-  [Subcommand("uninstall", typeof(UninstallCommand))]
-  [Subcommand("update", typeof(UpdateCommand))]
-  [Subcommand("version", typeof(VersionCommand))]
+  [Subcommand(typeof(BlastCommand))]
+  [Subcommand(typeof(DocsCommand))]
+  [Subcommand(typeof(GenerateCommand))]
+  [Subcommand(typeof(InfoCommand))]
+  [Subcommand(typeof(PlatformCommand))]
+  [Subcommand(typeof(ServeCommand))]
+  [Subcommand(typeof(StartCommand))]
+  [Subcommand(typeof(UninstallCommand))]
+  [Subcommand(typeof(UpdateCommand))]
+  [Subcommand(typeof(VersionCommand))]
   public class BionicCommandFactory {
     public static CommandLineApplication cla = null;
     public static string[] mainArgs = {};

@@ -5,7 +5,7 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Print Bionic serial number")]
+  [Command("version", Description = "Print Bionic serial number")]
   public class VersionCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => PrintVersion();
 

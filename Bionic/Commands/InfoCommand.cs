@@ -5,7 +5,7 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Print environment info")]
+  [Command("info", Description = "Print environment info")]
   public class InfoCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => Info();
 

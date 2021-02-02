@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <Description>Bionic - An Ionic CLI clone for Blazor projects</Description>
     <ToolCommandName>bionic</ToolCommandName>
@@ -9,11 +8,13 @@
     <RootNamespace>Bionic</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+	<TargetFramework>net5.0</TargetFramework>
+	<PackageIcon>bionic_logo_icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,13 @@
 
   <ItemGroup>
     <_UnmanagedRegistrationCache Remove="obj\Bionic.csproj.UnmanagedRegistration.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\bionic_logo_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

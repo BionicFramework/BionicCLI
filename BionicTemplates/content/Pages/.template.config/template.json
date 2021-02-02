@@ -1,19 +1,19 @@
 {
   "author": "Bionic Framework Contributors",
   "classifications": [ "Web/Blazor" ],
-  "name": "Bionic Page Template",
   "identity": "Bionic.Page.Template",
+  "name": "Bionic Page Template",
+  "preferNameDirectory": "true",
   "shortName": "bionic.page",
-  "tags": {
-    "language": "C#"
-  },
   "sourceName": "MyPage",
-  "preferNameDirectory" : "true",
-  "symbols":{
+  "symbols": {
     "pagePath": {
       "type": "parameter",
       "defaultValue": "/my/page",
-      "replaces":"/my/page"
+      "replaces": "/my/page"
     }
+  },
+  "tags": {
+    "language": "C#"
   }
 }

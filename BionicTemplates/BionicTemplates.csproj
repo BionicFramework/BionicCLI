@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	<TargetFramework>net5.0</TargetFramework>
     <Description>Bionic Templates - Templates for CLI generate command</Description>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageIcon>bionic_logo_icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +17,13 @@
 
   <ItemGroup>
     <Compile Remove="content/**/*.*;" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\bionic_logo_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>

@@ -6,7 +6,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Generate Blazor service")]
+  [Command("service", "provider", Description = "Generate Blazor service")]
   public class GenerateServiceCmd : CommandBase, ICommand {
     private const string ProgramPath = "Startup.cs";
 

@@ -1,12 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionic", "Bionic\Bionic.csproj", "{030D43E5-89C6-463D-80EC-9811366D8292}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bionic", "Bionic\Bionic.csproj", "{030D43E5-89C6-463D-80EC-9811366D8292}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicPlugin", "BionicPlugin\BionicPlugin.csproj", "{E07A0460-BE2D-418E-A3D2-1AD54D44081D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BionicPlugin", "BionicPlugin\BionicPlugin.csproj", "{E07A0460-BE2D-418E-A3D2-1AD54D44081D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicTemplates", "BionicTemplates\BionicTemplates.csproj", "{BF9A7D68-5ABF-4547-B5D2-0C4558BDCF38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BionicTemplates", "BionicTemplates\BionicTemplates.csproj", "{BF9A7D68-5ABF-4547-B5D2-0C4558BDCF38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicCore", "BionicCore\BionicCore.csproj", "{0CFAA466-B2D8-469E-8AD9-DB8176E10084}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BionicCore", "BionicCore\BionicCore.csproj", "{0CFAA466-B2D8-469E-8AD9-DB8176E10084}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +33,11 @@ Global
 		{0CFAA466-B2D8-469E-8AD9-DB8176E10084}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CFAA466-B2D8-469E-8AD9-DB8176E10084}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CFAA466-B2D8-469E-8AD9-DB8176E10084}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04395D96-BB5E-4DA9-B029-9ACC02ABC088}
 	EndGlobalSection
 EndGlobal

@@ -10,7 +10,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Execute Bionic Blast scripts")]
+  [Command("blast", Description = "Execute Bionic Blast scripts")]
   public class BlastCommand : CommandBase, ICommand {
     private static readonly string BlastFile = ToOSPath(".bionic/bionic.blast");
 

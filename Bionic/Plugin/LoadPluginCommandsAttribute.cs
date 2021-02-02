@@ -19,7 +19,7 @@ namespace BionicCLI.Plugin {
 
       var plugins = Directory.GetDirectories(bionicDir, "Bionic*Plugin");
       foreach (var path in plugins) {
-        var fp = ToOSPath($"{path}/lib/netcoreapp2.1/{new DirectoryInfo(path).Name}.dll");
+        var fp = ToOSPath($"{path}/lib/net5.0/{new DirectoryInfo(path).Name}.dll");
         var a = AssemblyLoader.LoadFromAssemblyPath(fp);
 
         IList<Type> commandPluginTypes = (

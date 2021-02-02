@@ -5,8 +5,8 @@ using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace BionicCLI.Commands {
-  [Command(Description = "Manage available platforms")]
-  [Subcommand("add", typeof(AddPlatformCmd))]
+  [Command("platform", Description = "Manage available platforms")]
+  [Subcommand(typeof(AddPlatformCmd))]
   [LoadPluginCommands]
   public class PlatformCommand : CommandBase, ICommand {
     protected override int OnExecute(CommandLineApplication app) => ExecutePlatform(app);

@@ -28,28 +28,33 @@ Build web apps [Blazor](https://blazor.net) fast that run at [WASM speed](https:
 
 Before we start, make sure that the following tools are available in your system:
 
-- ### SASS is installed and available in your terminal path
-
-You can install sass from [here](https://sass-lang.com/install).
-Ensure availability by executing scss command:
-```bash
-scss --version
-Ruby Sass 3.5.6
-```
-
 - ### NodeJS is installed and available in your terminal path
 
 You can install node from [here](https://nodejs.org/).
 Ensure availability by executing node command:
 ```bash
 node --version
-v9.5.0
+v14.15.4
 ```
 
 ```bash
 npm --version
-5.6.0
+6.14.10
 ```
+
+- ### SASS is installed and available in your terminal path
+
+You can install sass from [here](https://sass-lang.com/install).
+Preferred method is using npm global:
+```bash
+npm install -g sass
+```
+Ensure availability by executing sass command:
+```bash
+sass --version
+1.32.5 compiled with dart2js 2.10.4
+```
+
 
 The following steps are only required to be executed once:
 
@@ -159,7 +164,7 @@ Lines starting with:
 > - sub-targets. Make sure that there are no spaces after it.
 ```
 Any other type of line is a cli command.
- 
+
 # Blast scripts not executing?
 
 There's a bug in [dotnet tools](https://github.com/dotnet/cli/issues/9321) that is preventing bionic tool from being found in the system path.

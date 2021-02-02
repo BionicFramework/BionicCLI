@@ -43,7 +43,7 @@ namespace BionicCore.Project {
         pi.dir = Path.GetDirectoryName(path);
         pi.filename = Path.GetFileName(path);
         pi.projectType = ProjectType.Unknown;
-        if (FileHelper.FileContains(path, "Microsoft.AspNetCore.Blazor.Cli")) {
+        if (FileHelper.FileContains(path, "Microsoft.AspNetCore.Blazor.Cli") || FileHelper.FileContains(path, "Microsoft.AspNetCore.Components.WebAssembly")) {
           // Standalone
           pi.projectType = ProjectType.Standalone;
         }
